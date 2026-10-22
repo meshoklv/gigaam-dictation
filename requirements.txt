@@ -1,0 +1,12 @@
+# GigaAM Dictation (macOS, Apple Silicon or Intel, Python 3.10+)
+PyQt6>=6.6
+sounddevice>=0.4
+soundfile>=0.12
+numpy>=1.26
+pynput>=1.7
+pyobjc-core>=10
+pyobjc-framework-Cocoa>=10
+pyobjc-framework-Quartz>=10
+pyobjc-framework-ApplicationServices>=10
+# main backend: int8 ONNX, no PyTorch (model downloads from Hugging Face on first run)
+onnx-asr[cpu,hub]>=0.7
