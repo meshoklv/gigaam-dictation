@@ -5,15 +5,15 @@
 """
 from __future__ import annotations
 
-from PyQt6.QtCore import QObject, pyqtSignal
+from PySide6.QtCore import QObject, Signal
 
 
 class RightCommandWatcher(QObject):
     """Сигналы шлются из потока pynput; Qt превращает их в потокобезопасные вызовы."""
 
-    pressed = pyqtSignal()      # правая ⌘ — старт/финиш диктовки
-    escPressed = pyqtSignal()   # Esc — отмена записи
-    error = pyqtSignal(str)
+    pressed = Signal()      # правая ⌘ — старт/финиш диктовки
+    escPressed = Signal()   # Esc — отмена записи
+    error = Signal(str)
 
     def __init__(self) -> None:
         super().__init__()

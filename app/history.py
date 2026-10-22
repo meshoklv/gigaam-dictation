@@ -10,8 +10,8 @@ import sqlite3
 import time
 from datetime import datetime, timedelta
 
-from PyQt6.QtCore import QObject, Qt, pyqtSignal
-from PyQt6.QtWidgets import (
+from PySide6.QtCore import QObject, Qt, Signal
+from PySide6.QtWidgets import (
     QAbstractItemView, QApplication, QCheckBox, QFrame, QHBoxLayout, QLabel,
     QLineEdit, QListWidget, QListWidgetItem, QMessageBox, QPushButton,
     QTabWidget, QVBoxLayout, QWidget,
@@ -148,8 +148,8 @@ QPushButton#Big:hover { background: #3a3a44; }
 
 
 class RowWidget(QFrame):
-    insertRequested = pyqtSignal(str)
-    deleted = pyqtSignal(int)
+    insertRequested = Signal(str)
+    deleted = Signal(int)
 
     def __init__(self, row: dict) -> None:
         super().__init__()
@@ -218,7 +218,7 @@ class RowWidget(QFrame):
 
 
 class HistoryWindow(QWidget):
-    insertRequested = pyqtSignal(str)
+    insertRequested = Signal(str)
 
     TAB_HISTORY, TAB_SETTINGS = 0, 1
 

@@ -12,9 +12,9 @@ import sys
 import time
 from datetime import datetime
 
-from PyQt6.QtCore import QObject, QPointF, QRectF, QSettings, Qt, QTimer
-from PyQt6.QtGui import QAction, QColor, QIcon, QPainter, QPixmap, QPen
-from PyQt6.QtWidgets import QApplication, QMenu, QSystemTrayIcon
+from PySide6.QtCore import QObject, QPointF, QRectF, QSettings, Qt, QTimer
+from PySide6.QtGui import QAction, QColor, QIcon, QPainter, QPixmap, QPen
+from PySide6.QtWidgets import QApplication, QMenu, QSystemTrayIcon
 
 from config import (
     APP_NAME, DB_PATH, MAX_RECORD_SEC, MIN_RECORD_SEC, MODEL_NAME, ORG_NAME,
@@ -386,7 +386,7 @@ class Controller(QObject):
             self.open_history()
         elif reason == QSystemTrayIcon.ActivationReason.Context:
             # правый клик: показать меню там, где курсор
-            from PyQt6.QtGui import QCursor
+            from PySide6.QtGui import QCursor
             self._menu.popup(QCursor.pos())
 
     def _open_permissions(self) -> None:
@@ -481,10 +481,10 @@ class Controller(QObject):
 class AsrEngineWrapper(QObject):
     """Тонкая обёртка, чтобы сигналам было куда приходить из потоков."""
 
-    from PyQt6.QtCore import pyqtSignal
-    stateChanged = pyqtSignal(str)
-    transcribeDone = pyqtSignal(float, str)
-    transcribeFailed = pyqtSignal(str)
+    from PySide6.QtCore import Signal
+    stateChanged = Signal(str)
+    transcribeDone = Signal(float, str)
+    transcribeFailed = Signal(str)
 
     def __init__(self, controller: Controller) -> None:
         super().__init__()

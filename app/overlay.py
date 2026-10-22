@@ -10,11 +10,11 @@ import math
 import os
 import time
 
-from PyQt6.QtCore import (
-    QEasingCurve, QPointF, QRectF, QTimer, QVariantAnimation, Qt, pyqtSignal,
+from PySide6.QtCore import (
+    QEasingCurve, QPointF, QRectF, QTimer, QVariantAnimation, Qt, Signal,
 )
-from PyQt6.QtGui import QColor, QCursor, QFont, QFontMetrics, QPainter, QPainterPath, QPen
-from PyQt6.QtWidgets import QApplication, QHBoxLayout, QLabel, QVBoxLayout, QWidget
+from PySide6.QtGui import QColor, QCursor, QFont, QFontMetrics, QPainter, QPainterPath, QPen
+from PySide6.QtWidgets import QApplication, QHBoxLayout, QLabel, QVBoxLayout, QWidget
 
 from config import CARD_LINGER_SEC, FADE_MSEC, MAX_RECORD_SEC
 
@@ -276,14 +276,14 @@ class RecordingPill(QWidget):
 
 
 def _rounded(rect, r: float):
-    from PyQt6.QtGui import QPainterPath
+    from PySide6.QtGui import QPainterPath
     path = QPainterPath()
     path.addRoundedRect(QRectF(rect), r, r)
     return path
 
 
 def _pen(color: QColor):
-    from PyQt6.QtGui import QPen
+    from PySide6.QtGui import QPen
     return QPen(color, 1)
 
 
@@ -392,12 +392,12 @@ class Badge(QWidget):
 
 
 def _pt(x: float, y: float):
-    from PyQt6.QtCore import QPointF
+    from PySide6.QtCore import QPointF
     return QPointF(x, y)
 
 
 class ResultCard(QWidget):
-    clicked = pyqtSignal()
+    clicked = Signal()
 
     def __init__(self) -> None:
         super().__init__()
@@ -466,7 +466,7 @@ class ResultCard(QWidget):
 class OverlayManager(QWidget):
     """Владеет всеми окошками и решает, какое сейчас видно."""
 
-    historyRequested = pyqtSignal()
+    historyRequested = Signal()
 
     def __init__(self) -> None:
         super().__init__()

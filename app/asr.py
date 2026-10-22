@@ -7,7 +7,7 @@ import threading
 import time
 
 import numpy as np
-from PyQt6.QtCore import QObject, pyqtSignal
+from PySide6.QtCore import QObject, Signal
 
 # --- Нарезка длинного аудио -------------------------------------------------
 # GigaAM обучена на кусках до ~25 c: более длинное аудио за один проход
@@ -75,11 +75,11 @@ def split_on_pauses(
 
 
 class AsrEngine(QObject):
-    stateChanged = pyqtSignal(str)          # "loading" | "ready" | "error"
-    transcribeDone = pyqtSignal(float, str)  # (длительность аудио, текст)
-    transcribeFailed = pyqtSignal(str)
-    transcribeProgress = pyqtSignal(int, int)  # (кусок, всего кусков)
-    transcribeCancelled = pyqtSignal(float, str)  # (длительность, что успели)
+    stateChanged = Signal(str)          # "loading" | "ready" | "error"
+    transcribeDone = Signal(float, str)  # (длительность аудио, текст)
+    transcribeFailed = Signal(str)
+    transcribeProgress = Signal(int, int)  # (кусок, всего кусков)
+    transcribeCancelled = Signal(float, str)  # (длительность, что успели)
 
     def __init__(self, model_name: str, device: str = "auto") -> None:
         super().__init__()

@@ -15,9 +15,9 @@ import time
 
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
-from PyQt6.QtCore import QPointF, QRectF, Qt
-from PyQt6.QtGui import QColor, QFont, QLinearGradient, QPainter, QPen, QPixmap
-from PyQt6.QtWidgets import QApplication
+from PySide6.QtCore import QPointF, QRectF, Qt
+from PySide6.QtGui import QColor, QFont, QLinearGradient, QPainter, QPen, QPixmap
+from PySide6.QtWidgets import QApplication
 
 from overlay import RecordingPill, ResultCard, TranscribingPill
 

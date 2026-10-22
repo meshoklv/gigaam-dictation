@@ -9,8 +9,8 @@ from __future__ import annotations
 import json
 import re
 
-from PyQt6.QtCore import Qt, pyqtSignal
-from PyQt6.QtWidgets import QLabel, QPlainTextEdit, QPushButton, QVBoxLayout, QWidget
+from PySide6.QtCore import Qt, Signal
+from PySide6.QtWidgets import QLabel, QPlainTextEdit, QPushButton, QVBoxLayout, QWidget
 
 from config import DATA_DIR
 
@@ -84,7 +84,7 @@ class Dictionary:
 
 
 class DictionaryWindow(QWidget):
-    saved = pyqtSignal(int)
+    saved = Signal(int)
 
     def __init__(self, dictionary: Dictionary) -> None:
         super().__init__()

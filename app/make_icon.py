@@ -4,13 +4,13 @@ import sys
 
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
-from PyQt6.QtCore import QPointF, QRectF, Qt
-from PyQt6.QtGui import QColor, QLinearGradient, QPainter, QPainterPath, QPen, QPixmap
+from PySide6.QtCore import QPointF, QRectF, Qt
+from PySide6.QtGui import QColor, QLinearGradient, QPainter, QPainterPath, QPen, QPixmap
 
 
 def main() -> None:
-    from PyQt6.QtGui import QImage
-    from PyQt6.QtWidgets import QApplication
+    from PySide6.QtGui import QImage
+    from PySide6.QtWidgets import QApplication
     app = QApplication.instance() or QApplication(sys.argv)
 
     img = QImage(1024, 1024, QImage.Format.Format_ARGB32)

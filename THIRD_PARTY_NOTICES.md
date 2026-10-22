@@ -12,7 +12,7 @@ the upstream repositories / PyPI / Hugging Face metadata on 2026-10-22.
 | [onnx-asr](https://github.com/istupakov/onnx-asr) | main inference backend | MIT (Copyright (c) 2025 Ilya Stupakov) |
 | onnxruntime | ONNX execution | MIT |
 | huggingface-hub | model download | Apache-2.0 |
-| **PyQt6** | GUI | **GPL-3.0-only** (or commercial from Riverbank) |
+| PySide6 (Qt for Python) | GUI | LGPL-3.0 (Qt Company) |
 | pynput | global hotkey | LGPL-3.0 |
 | sounddevice | microphone capture | MIT |
 | soundfile | wav I/O | BSD-3-Clause |
@@ -20,13 +20,12 @@ the upstream repositories / PyPI / Hugging Face metadata on 2026-10-22.
 | pyobjc (Cocoa, Quartz, ApplicationServices) | macOS APIs | MIT |
 | PyTorch, torchaudio, `gigaam` package (optional, `--with-torch`) | fallback backend | BSD-3-Clause / Apache-2.0 mix; `gigaam` MIT |
 
-## Note on PyQt6 (GPL-3.0)
+## Note on PySide6 (LGPL-3.0)
 
-The application's own source is MIT and is distributed without PyQt6. However, a
-combined work that imports PyQt6 is subject to PyQt6's terms: if you redistribute a
-*bundled* build (e.g. a ready-made `.app` containing PyQt6), that build must comply
-with GPL-3.0 (or you need a commercial PyQt license). Installing from source with
-`install.sh` (PyQt6 fetched from PyPI on your own machine) is not affected.
+The GUI uses PySide6, which is licensed under the LGPL-3.0 (with GPL/commercial
+options). It is installed from PyPI and linked dynamically, so the application's own
+source stays MIT. If you redistribute a bundled build containing PySide6/Qt, keep
+the LGPL notices and allow users to replace the Qt libraries.
 
 ## Note on the model
 
