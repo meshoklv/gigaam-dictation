@@ -24,7 +24,7 @@ DEFAULT_RULES: list[list[str]] = []
 
 def _replace_ci(text: str, spoken: str, written: str) -> str:
     """Регистронезависимая замена ЦЕЛЫХ слов/фраз (не внутри слова):
-    «клод» не тронет «клода», иначе получилось бы «Claudeа»."""
+    «ридми» не тронет «ридмики», иначе получилось бы «READMEки»."""
     pattern = re.compile(
         r"(?<![а-яёa-z0-9])" + re.escape(spoken) + r"(?![а-яёa-z0-9])",
         re.IGNORECASE,
@@ -55,7 +55,7 @@ class Dictionary:
             encoding="utf-8")
 
     def apply(self, text: str) -> str:
-        # длинные правила первыми: «клод мд» должно сработать раньше «клод»;
+        # длинные правила первыми: «ридми мд» должно сработать раньше «ридми»;
         # lambda вместо строки — чтобы бэкслеши в поле «писать» не читались
         # как regex-замена
         for spoken, written in sorted(self.rules, key=lambda r: -len(r[0])):
